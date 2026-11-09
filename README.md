@@ -25,11 +25,10 @@ with register / login / logout flows powered by py4web's built-in `Auth`.
 
 ```bash
 cd webapp
-python -m py4web run . --port 8101
+python -m py4web run .
 ```
 
-Then open **http://127.0.0.1:8101/secureapp/index** (this repo ships with a
-demo user `alice@example.com` / `Carlito-Tunnel-Vex-99` already registered).
+Then open **http://127.0.0.1:8000** 
 
 ## What it demonstrates
 
