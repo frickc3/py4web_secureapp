@@ -1,0 +1,76 @@
+timestamp: 2026-11-09T09:35:25.037871
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" VARCHAR(512) UNIQUE,
+    "email" VARCHAR(512) UNIQUE,
+    "password" VARCHAR(512),
+    "first_name" VARCHAR(512),
+    "last_name" VARCHAR(512),
+    "sso_id" VARCHAR(512),
+    "action_token" VARCHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+timestamp: 2026-11-09T09:41:43.408331
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" VARCHAR(512) UNIQUE,
+    "email" VARCHAR(512) UNIQUE,
+    "password" VARCHAR(512),
+    "first_name" VARCHAR(512),
+    "last_name" VARCHAR(512),
+    "sso_id" VARCHAR(512),
+    "action_token" VARCHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+timestamp: 2026-11-09T09:47:56.194795
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" VARCHAR(512) UNIQUE,
+    "email" VARCHAR(512) UNIQUE,
+    "password" VARCHAR(512),
+    "first_name" VARCHAR(512),
+    "last_name" VARCHAR(512),
+    "sso_id" VARCHAR(512),
+    "action_token" VARCHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+timestamp: 2026-11-09T09:51:21.680938
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" VARCHAR(512) UNIQUE,
+    "email" VARCHAR(512) UNIQUE,
+    "password" VARCHAR(512),
+    "first_name" VARCHAR(512),
+    "last_name" VARCHAR(512),
+    "sso_id" VARCHAR(512),
+    "action_token" VARCHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2026-11-09T09:51:21.816365
+CREATE TABLE "auth_attempt"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "key_hash" VARCHAR(64),
+    "counter" INTEGER,
+    "expires_on" DOUBLE
+);
+success!
+timestamp: 2026-11-09T09:51:21.826193
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "tagpath" VARCHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2026-11-09T09:51:21.842343
+CREATE TABLE "secure_note"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "body" TEXT,
+    "created_on" TIMESTAMP
+);
+success!

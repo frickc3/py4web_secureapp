@@ -1,0 +1,28 @@
+/* VaultApp — light touch-ups on top of Bootstrap 5 */
+body {
+  background: #f4f6fb;
+}
+
+.flash-alerts {
+  position: relative;
+  z-index: 10;
+}
+
+/* py4web FormStyleBootstrap5 emits these Bootstrap classes; just tighten forms */
+.card form {
+  max-width: 30rem;
+}
+
+h5.card-title {
+  letter-spacing: -0.01em;
+}
+
+code {
+  background: rgba(13, 110, 253, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+}
+
+footer span code {
+  background: rgba(255, 255, 255, 0.12);
+}

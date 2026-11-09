@@ -1,0 +1,61 @@
+[[extend "layout.html"]]
+
+<section class="py-5 text-center">
+  <div class="container py-4">
+    <h1 class="display-6 fw-bold">py4web on an encrypt<span class="text-info">…</span>ed database</h1>
+    <p class="lead mb-4 text-body-secondary mx-auto" style="max-width: 560px">
+      This app stores every user, session field of truth and note inside a
+      <b>SQLCipher</b> database file that's AES-256 encrypted at rest.
+    </p>
+
+    [[if globals().get('user'):]]
+      <a href="[[=URL('secure')]]" class="btn btn-primary btn-lg">Open my secure notes</a>
+    [[else:]]
+      <a href="[[=URL('auth/register')]]" class="btn btn-primary btn-lg">Create an account</a>
+      <a href="[[=URL('auth/login')]]" class="btn btn-outline-secondary btn-lg">Log in</a>
+    [[pass]]
+  </div>
+</section>
+
+<section class="pb-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="fs-2 mb-2">🔑</div>
+            <h5 class="fw-semibold">Register</h5>
+            <p class="text-body-secondary">
+              POST to <code>auth/register</code>; passwords are hashed with
+              <code>pbkdf2</code> before they ever reach the database.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="fs-2 mb-2">⏳</div>
+            <h5 class="fw-semibold">Login &amp; logout</h5>
+            <p class="text-body-secondary">
+              Signed, encrypted session cookies expire after
+              <code>login_expiration_time</code>; logout clears the session.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="fs-2 mb-2">🗄️</div>
+            <h5 class="fw-semibold">SQLCipher at rest</h5>
+            <p class="text-body-secondary">
+              <code>sqlcipher://secure.db</code> — without the key from
+              <code>private/db_key.txt</code> the file is unreadable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
